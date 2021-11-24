@@ -13,17 +13,18 @@ import {
 import axios from "axios";
 
 export default function SignUpScreen({ setToken }) {
-  const [email, setEmail] = useState("test22222@mail");
-  const [username, setUsername] = useState("t222222est");
-  const [password, setPassword] = useState("azerty");
-  const [confirmPassword, setConfirmPassword] = useState("azerty2");
-  const [description, setDescription] = useState("description");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [description, setDescription] = useState("");
   const [error, setError] = useState("");
 
   const submit = async () => {
-    //Vérifier que tous les champs sont remplis
+    //Tous les champs sont-ils remplis ?
     if (email && username && password && confirmPassword && description) {
       setError("");
+      // MDP = confirm MDP ?
       if (password === confirmPassword) {
         try {
           const response = await axios.post(
@@ -37,7 +38,7 @@ export default function SignUpScreen({ setToken }) {
           );
           console.log(response.data);
 
-          //Cette ligne fixe le user token
+          //Fixe le user token
           setToken(response.data.token);
         } catch (error) {
           console.log(error.response.status);
