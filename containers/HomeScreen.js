@@ -53,16 +53,19 @@ export default function HomeScreen() {
                 resireMode="contain"
               />
               <View style={styles.subPic}>
-                <Image
-                  source={{ uri: item.user.account.photo.url }}
-                  style={styles.hostPic}
-                  resireMode="contain"
-                />
-
-                <Text style={styles.title} numberOfLines={1}>
-                  {item.title}
-                </Text>
-                <Text>{item.reviews} reviews</Text>
+                <View>
+                  <Text style={styles.title} numberOfLines={1}>
+                    {item.title}
+                  </Text>
+                  <Text>{item.reviews} reviews</Text>
+                </View>
+                <View>
+                  <Image
+                    source={{ uri: item.user.account.photo.url }}
+                    style={styles.hostPic}
+                    resireMode="contain"
+                  />
+                </View>
               </View>
             </View>
           );
@@ -101,5 +104,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+  },
+  subPic: {
+    flexDirection: "row",
+    width: Dimensions.get("window").width,
   },
 });
