@@ -110,5 +110,7 @@ const styles = StyleSheet.create({
   subPic: {
     flexDirection: "row",
     width: Dimensions.get("window").width,
+    paddingRight: 60,
+    justifyContent: "space-between",
   },
 });
