@@ -91,16 +91,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     paddingTop: 20,
+    paddingHorizontal: 15,
   },
   flatPic: {
     width: Dimensions.get("window").width,
     height: 200,
-    margin: 10,
+    marginTop: 10,
   },
   hostPic: {
     width: 80,
     height: 80,
     borderRadius: 50,
+    marginRight: 10,
   },
   title: {
     fontSize: 24,
