@@ -52,6 +52,7 @@ export default function HomeScreen() {
                 style={styles.flatPic}
                 resireMode="contain"
               />
+              <Text style={styles.price}>{item.price}€</Text>
               <View style={styles.subPic}>
                 <View>
                   <Text style={styles.title} numberOfLines={1}>
@@ -92,11 +93,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
     paddingHorizontal: 15,
+    // width: Dimensions.get("window").width * 0.9,
   },
   flatPic: {
     width: Dimensions.get("window").width,
     height: 200,
     marginTop: 10,
+    position: "relative",
   },
   hostPic: {
     width: 80,
@@ -109,8 +112,20 @@ const styles = StyleSheet.create({
   },
   subPic: {
     flexDirection: "row",
-    width: Dimensions.get("window").width,
-    paddingRight: 60,
-    justifyContent: "space-between",
+    // width: Dimensions.get("window").width,
+    // paddingRight: 60,
+    // justifyContent: "space-between",
+  },
+  price: {
+    backgroundColor: "black",
+    position: "absolute",
+    bottom: 88,
+    left: 0,
+    color: "#fff",
+    fontSize: 19,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });
