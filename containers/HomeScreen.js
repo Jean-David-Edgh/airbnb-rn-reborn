@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/core";
-import { Button, Text, View, FlatList, Image } from "react-native";
+import {
+  Button,
+  Text,
+  View,
+  FlatList,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import axios from "axios";
 
 export default function HomeScreen() {
@@ -27,8 +35,11 @@ export default function HomeScreen() {
   return isLoading ? (
     <Text>En cours de chargement...</Text>
   ) : (
-    <View>
-      <Text>Welcome home, my friend !</Text>
+    <View style={styles.homeContainer}>
+      <Image
+        source={require("../assets/logo-airbnb-2.jpg")}
+        style={styles.logo}
+      />
 
       <FlatList
         data={data}
@@ -36,10 +47,23 @@ export default function HomeScreen() {
         renderItem={({ item }) => {
           return (
             <View>
-              <Image source={item.user.account.photo.url} />
-              <Image source={item.photos[0].url} />
-              <Text>{item.title}</Text>
-              {/* <Text>{item.description}</Text> */}
+              <Image
+                source={{ uri: item.photos[0].url }}
+                style={styles.flatPic}
+                resireMode="contain"
+              />
+              <View style={styles.subPic}>
+                <Image
+                  source={{ uri: item.user.account.photo.url }}
+                  style={styles.hostPic}
+                  resireMode="contain"
+                />
+
+                <Text style={styles.title} numberOfLines={1}>
+                  {item.title}
+                </Text>
+                <Text>{item.reviews} reviews</Text>
+              </View>
             </View>
           );
         }}
@@ -54,3 +78,28 @@ export default function HomeScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  logo: {
+    width: 40,
+    height: 40,
+  },
+  homeContainer: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    paddingTop: 20,
+  },
+  flatPic: {
+    width: Dimensions.get("window").width,
+    height: 200,
+    margin: 10,
+  },
+  hostPic: {
+    width: 80,
+    height: 80,
+    borderRadius: 50,
+  },
+  title: {
+    fontSize: 24,
+  },
+});
