@@ -36,29 +36,29 @@ export default function HomeScreen({ navigation }) {
   }, []);
 
   //Gestion des demi-étoiles
-  const displayStars = (ratingValue) => {
-    let tab = [];
-    const isDecimal = !Number.isInteger(ratingValue);
-    const flooredNum = Math.floor(ratingValue);
+  // const displayStars = (ratingValue) => {
+  //   let tab = [];
+  //   const isDecimal = !Number.isInteger(ratingValue);
+  //   const flooredNum = Math.floor(ratingValue);
 
-    for (let i = 1; i <= 5; i++) {
-      if (ratingValue >= i) {
-        tab.push(<FontAwesome name="star" size={24} color="orange" key={i} />);
-      }
+  //   for (let i = 1; i <= 5; i++) {
+  //     if (ratingValue >= i) {
+  //       tab.push(<FontAwesome name="star" size={24} color="orange" key={i} />);
+  //     }
 
-      if (ratingValue < i && tab.length < 5) {
-        tab.push(<FontAwesome name="star" size={24} color="grey" key={i} />);
-      }
+  //     if (ratingValue < i && tab.length < 5) {
+  //       tab.push(<FontAwesome name="star" size={24} color="grey" key={i} />);
+  //     }
 
-      if (flooredNum === i && isDecimal) {
-        tab.push(
-          <FontAwesome name="star-half-empty" size={24} color="black" />
-        );
-      }
-    }
+  //     if (flooredNum === i && isDecimal) {
+  //       tab.push(
+  //         <FontAwesome name="star-half-empty" size={24} color="black" />
+  //       );
+  //     }
+  //   }
 
-    return tab;
-  };
+  //   return tab;
+  // };
 
   return isLoading ? (
     <ActivityIndicator size="large" color="red" style={{ flex: 1 }} />
@@ -77,7 +77,7 @@ export default function HomeScreen({ navigation }) {
             <View>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("Room", {
+                  navigation.navigate("RoomScreen", {
                     id: item._id,
                   });
                 }}

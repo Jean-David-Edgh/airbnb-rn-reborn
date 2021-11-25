@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+// import { useRoute } from "@react-navigation/core";
 
 const RoomScreen = ({ route }) => {
   console.log(route);
@@ -13,4 +14,4 @@ const RoomScreen = ({ route }) => {
 
 export default RoomScreen;
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
