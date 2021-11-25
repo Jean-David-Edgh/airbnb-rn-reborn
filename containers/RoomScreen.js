@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 // import { useRoute } from "@react-navigation/core";
 
 const RoomScreen = ({ route }) => {
-  console.log(route);
+  //   console.log(route);
   return (
     <View>
       <Text>Room Screen</Text>

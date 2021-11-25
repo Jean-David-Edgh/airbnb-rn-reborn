@@ -81,7 +81,6 @@ export default function HomeScreen({ navigation }) {
                     id: item._id,
                   });
                 }}
-                // style={styles.container}
               >
                 <Image
                   source={{ uri: item.photos[0].url }}
